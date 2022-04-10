@@ -9,7 +9,8 @@ function RedirectPage() {
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
   if (!session?.user?.id) {
-    return { redirect: { permanent: false, destination: "/auth/login" } };
+    // redirect to user page
+    return { redirect: { permanent: false, destination: "/new" } };
   }
 
   return { redirect: { permanent: false, destination: "/event-types" } };
